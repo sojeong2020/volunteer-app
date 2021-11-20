@@ -5,26 +5,31 @@ import { getOpportunity , getSession} from '../api';
 
 const Opportunity = () => {
 
-    let oppID=3
-
    const[opportunity, setOpportunity]=useState([]);
+   //const[oppID, setOppID]=useState(1)
    const[session, setSession]=useState([]);
 
-    console.log("opp",opportunity)
-    console.log("session",session)
+  let oppID=1
+
+   /* let ids=[1,2,3]
+   ids.forEach(x=>setOppID(x)) */
+
+
+    
    
     useEffect(()=>{
         getOpportunity(oppID).then((resultFromApi)=>{
             setOpportunity(resultFromApi)
             })
         },[oppID]) 
+    
 
-     useEffect(()=>{
+      useEffect(()=>{
         getSession(oppID).then((resultFromApi)=>{
 
             setSession(resultFromApi)
                 })
-        },[oppID])  
+        },[oppID])   
 
     return (
         <div>
@@ -32,6 +37,7 @@ const Opportunity = () => {
            
            <h2>{opportunity.NAME}</h2>
            <p>{opportunity.DESCRIPTION}</p>
+
            <h1>Session</h1>
            <h2>{session.PLACEMENTSLOTDATE}</h2>
            <h2>{session.PLACEMENTSLOTID}</h2>

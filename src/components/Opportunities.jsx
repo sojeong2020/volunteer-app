@@ -5,6 +5,7 @@ import {getOpportunities} from '../api';
 const Opportunities = () => {
 
     let search=["football"]
+    
     let oppID=1
    const[opportunities, setOpportunities]=useState([]);
 
@@ -14,7 +15,7 @@ const Opportunities = () => {
         getOpportunities(oppID,search[0]).then((resultFromApi)=>{
             setOpportunities(resultFromApi)
             })
-        },[oppID,search[0]]) 
+        },[oppID, search[0]]) 
 
     return (
         <div>

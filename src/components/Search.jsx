@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Header = () => {
+const Search = () => {
     return (
         <div>
-            <p>Opportunities</p>
+            <h1>Search~~~</h1>
         </div>
     );
 };
 
-export default Header;
+export default Search;

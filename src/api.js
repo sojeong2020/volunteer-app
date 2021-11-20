@@ -29,7 +29,7 @@ export const getOpportunity = (oppID) => {
         return volunteerApi
         .get(path)
         .then((response)=>{
-            console.log(response.data[0].Results[0])
+            console.log("oppFromApi",response.data[0].Results[0])
             return response.data[0].Results[0];
         }).catch((error)=>
         console.log("error>>>>",error.response))

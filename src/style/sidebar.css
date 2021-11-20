@@ -1,0 +1,13 @@
+.sidebar {
+    display: flex;
+    height: 100vh;
+    overflow: scroll initial;
+    
+}
+.sidebar-item :hover{
+background-color: rgb(4, 51, 14);
+}
+.footer{
+    text-align: center;
+    padding: 20px 5px;
+}
