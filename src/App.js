@@ -1,5 +1,6 @@
 import './App.css';
 import {Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -15,7 +16,8 @@ function App() {
 
   return (
     <div className="App">
-  <Sidebar />
+      <Header />
+      <Sidebar />
 
   <Routes>
  <Route path='/home' element={<Home/>} />

@@ -42,13 +42,13 @@ const Sidebar = () => {
                 </CDBSidebarMenuItem>
               </NavLink>
               <NavLink exact to="/resources" activeClassName="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="chart-line">
+                <CDBSidebarMenuItem className="sidebar-item" icon="book">
                 Resources
                 </CDBSidebarMenuItem>
               </NavLink>
             
 
-          <NavLink exact to="/en">
+          {/* <NavLink exact to="/en">
           <CDBSidebarMenuItem icon="flag">
           <CDBBtn color="success" outline>
             English
@@ -62,7 +62,7 @@ const Sidebar = () => {
             Welsh
           </CDBBtn>
           </CDBSidebarMenuItem>
-          </NavLink>
+          </NavLink> */}
           
         </CDBSidebarMenu>
           </CDBSidebarContent>

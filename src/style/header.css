@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
+.header{
+    background-color: rgb(2, 59, 7);
+    color:#fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .greeting{
+    font-family: 'Indie Flower', cursive;
+    margin-right: 60px;
+  }
+  .lan-button{
+      margin-right: 100px;
+  }
+  .lan-button-en{
+      margin:6px;
+  }
