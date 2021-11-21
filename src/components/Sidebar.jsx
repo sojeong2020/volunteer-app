@@ -7,7 +7,7 @@ import {
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
-  CDBBtn,
+  
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
  
@@ -26,6 +26,7 @@ const Sidebar = () => {
           </CDBSidebarHeader>
    
           <CDBSidebarContent className="sidebar-content">
+
             <CDBSidebarMenu>
               <NavLink exact to="/profile" activeClassName="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="user">Profile</CDBSidebarMenuItem>
@@ -46,25 +47,8 @@ const Sidebar = () => {
                 Resources
                 </CDBSidebarMenuItem>
               </NavLink>
-            
-
-          {/* <NavLink exact to="/en">
-          <CDBSidebarMenuItem icon="flag">
-          <CDBBtn color="success" outline>
-            English
-          </CDBBtn>
-          </CDBSidebarMenuItem>
-          </NavLink>
-
-           <NavLink exact to="/we">
-           <CDBSidebarMenuItem icon="flag">
-          <CDBBtn color="danger" outline>
-            Welsh
-          </CDBBtn>
-          </CDBSidebarMenuItem>
-          </NavLink> */}
+          </CDBSidebarMenu>
           
-        </CDBSidebarMenu>
           </CDBSidebarContent>
    
           <CDBSidebarFooter className="footer">

@@ -15,26 +15,19 @@ import Resources from './components/Resources';
 function App() {
 
   return (
-    <div className="App">
-      <Header />
-      <Sidebar />
-
-  <Routes>
- <Route path='/home' element={<Home/>} />
- <Route path='/profile' element={<Profile/>} />
- <Route path='/search' element={<Search/>} />
- <Route path="/opportunities" element={<Opportunities/>}/>
- <Route path="/opportunity" element={<Opportunity/>}/>
- <Route path="/documents" element={<Documents/>}/>
- <Route path="/resources" element={<Resources/>}/>
-</Routes>   
-    
-         
-
-
-      
-      
-    </div>
+  <div className="App">
+    <Header />
+    <Sidebar /> 
+    <Routes>
+    <Route exact path="/home" element={<Home/>} />
+    <Route exact path="/profile" element={<Profile/>} />
+    <Route exact path="/search" element={<Search/>} />
+    <Route exact path="/opportunities" element={<Opportunities/>}/>
+    <Route exact path="/opportunity" element={<Opportunity/>}/>
+    <Route exact path="/documents" element={<Documents/>}/>
+    <Route exact path="/resources" element={<Resources/>}/>
+    </Routes>   
+  </div>
   );
 }
 
