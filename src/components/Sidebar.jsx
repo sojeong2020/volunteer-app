@@ -3,7 +3,6 @@ import '../style/sidebar.css';
 import {
   CDBSidebar,
   CDBSidebarContent,
-  CDBSidebarFooter,
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
@@ -51,11 +50,7 @@ const Sidebar = () => {
           
           </CDBSidebarContent>
    
-          <CDBSidebarFooter className="footer">
-            <div>
-              teamkinetic
-            </div>
-          </CDBSidebarFooter>
+          
         </CDBSidebar>
       </div>
     );
