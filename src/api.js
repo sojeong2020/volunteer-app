@@ -9,6 +9,17 @@ const volunteerApi = axios.create({
         }
     });
 
+export const getProfile = ()=>{
+    return volunteerApi
+    .get('https://private-anon-9bf83f9908-teamkinetictechtest.apiary-proxy.com/techtest/volunteer.htm?action=getProfile&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9')
+    .then((response)=>{
+        console.log("profile",response.data[0].results)
+        return response.data[0].results
+    }).catch((error)=>
+    console.log("error>>>>",error.response))
+
+}
+
 export const getSearch = (oppID,search) => {
         let path ='https://private-anon-431d9a1c9a-teamkinetictechtest.apiary-proxy.com/techtest/search.htm';
     
@@ -23,11 +34,10 @@ export const getSearch = (oppID,search) => {
     }; 
 
 export const getOpportunityFirst = () => {
-        let path ='/opps.htm?action=oppDetails&oppID=1&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9';
         return volunteerApi
-        .get(path)
+        .get('/opps.htm?action=oppDetails&oppID=1&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9')
         .then((response)=>{
-            console.log("oppid-1FromApi",response.data[0].Results[0])
+            console.log("opportunity",response.data[0].Results[0])
             return response.data[0].Results[0];
         }).catch((error)=>
         console.log("error>>>>",error.response))
@@ -68,6 +78,18 @@ export const getSession = () => {
             }).catch((error)=>
             console.log("error>>>>",error.response))
         };
+
+export const updateJoin =(oppID,slotID,updatingJoin)=>{
+    let path=`https://private-anon-9bf83f9908-teamkinetictechtest.apiary-proxy.com/techtest/opps.htm?action=joinSession&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&slotID=${slotID}`
+    return volunteerApi
+            .put(path,updatingJoin)
+            .then((response)=>{
+                console.log("updateJoin",response.data[0].Results[0])
+                return response.data[0].Results[0];
+            }).catch((error)=>
+            console.log("error>>>>",error.response))
+}
+
         
 
     

@@ -1,14 +1,18 @@
 import React from 'react';
 import '../style/header.css';
 import Button from 'react-bootstrap/Button';
-import {Link} from 'react-router-dom'
-import Profile from './Profile';
+import {Link} from 'react-router-dom';
+//import { useContext } from 'react';
+//import { UserContext } from '../useContext/user';
+
 
 const Header = () => {
+    //const{user}=useContext(UserContext);
+
     return (
         <div className="header">
             <div className="greeting">
-            <h2>Hello {Profile.firstname}</h2>
+             {/* <h2>Hello {user.firstName}</h2> */} 
             </div>
 
             <div className="lan-button">

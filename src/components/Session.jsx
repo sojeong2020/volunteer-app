@@ -1,25 +1,27 @@
 import React from 'react';
-import { useState,useEffect} from 'react';
-/* import { useParams } from 'react-router-dom'; */
-import { getSession } from '../api';
+import { useState} from 'react';
+import {  updateJoin } from '../api';
 
 
-const Session = ({opportunityFirst}) => {
-    console.log("opportunityFirst",opportunityFirst)
-   
-    const[session, setSession]=useState([]);
+const Session = ({opportunityFirst,oppID,session,slotID}) => {
+    
+    const[join,setJoin]=useState("");
 
-     useEffect(()=>{
-        getSession().then((resultFromApi)=>{
+    const joinSession=()=>{
+        setJoin("joined")
 
-            setSession(resultFromApi)
-                })
-        },[])   
+        const updatingJoin={
+            results: [
+              {
+                "success":" true",
+                
+              }
+            ]
+          }
 
-   /*  const joinSession=()=>{
-        
+        updateJoin(oppID,slotID,updatingJoin)
 
-    } */
+    } 
    
     return (
         <div>
@@ -28,11 +30,12 @@ const Session = ({opportunityFirst}) => {
            <p>Start Date {opportunityFirst.STARTDATE}</p>
            <p>End Date {opportunityFirst.ENDDATE}</p>
 
- <h1>Session</h1>
-             <h2>Date :{session.PLACEMENTSLOTDATE}</h2> 
-             <h2>Start at :{session.PLACEMENTSLOTSTARTTIME}</h2> 
-             <h2>Hours :{session.PLACEMENTSLOTHOURS}</h2>  
-            <button>Join</button>
+            <h1>Session</h1>
+            <h2>Date :{session.PLACEMENTSLOTDATE}</h2> 
+            <h2>Start at :{session.PLACEMENTSLOTSTARTTIME}</h2> 
+            <h2>Hours :{session.PLACEMENTSLOTHOURS}</h2>  
+            <button type='submit' disabled={join === "joined"} onClick={joinSession} >Join</button>
+            <h2>{join}</h2>
         </div>
     );
 };

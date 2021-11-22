@@ -2,6 +2,7 @@ import React from 'react';
 //import {NavLink} from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import { getOpportunityFirst,
+        getSession
          /* getOpportunitySecond,
          getOpportunityThird */ }  from '../api';
 import Session from './Session';
@@ -9,6 +10,8 @@ import Session from './Session';
 const Opportunity = () => {
 
    const[opportunityFirst, setOpportunityFirst]=useState([]);
+   const[session, setSession]=useState([]);
+
    /* const[opportunitySecond, setOpportunitySecond]=useState([]);
    const[opportunityThird, setOpportunityThird]=useState([]); 
   */
@@ -17,7 +20,7 @@ console.log("oppportunityFirst",opportunityFirst)
    
     useEffect(()=>{
         getOpportunityFirst().then((resultFromApi)=>{
-            console.log("oppapi",resultFromApi)
+            console.log("oppFromAPi",resultFromApi)
             setOpportunityFirst(resultFromApi)
             })
         },[]) 
@@ -31,7 +34,12 @@ console.log("oppportunityFirst",opportunityFirst)
                 setOpportunityThird(resultFromApi)
                 })
             },[])      */        
-
+        useEffect(()=>{
+            getSession().then((resultFromApi)=>{
+            console.log("sessionFromAPi",resultFromApi)
+            setSession(resultFromApi)
+                        })
+                },[])   
      
 
     return (
@@ -42,7 +50,12 @@ console.log("oppportunityFirst",opportunityFirst)
            {/* <NavLink exact="true" to={`/session/${opportunityFirst.oppID}`}>
            <button>Session Details</button>
            </NavLink> */}
-           <Session opportunityFirst={opportunityFirst} />
+           <Session opportunityFirst={opportunityFirst} 
+                    oppID={opportunityFirst.oppID}
+                    session={session}
+                    slotID={session.PLACEMENTSLOTID}
+
+            />
 
            {/* <h2>{opportunitySecond.NAME}</h2>
            <p>{opportunitySecond.DESCRIPTION}</p>

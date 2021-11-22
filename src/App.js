@@ -14,7 +14,9 @@ import { Col, Row } from 'react-bootstrap';
 
 
 function App() {
-  const styles = {
+
+  
+const styles = {
     contentDiv: {
       display: "flex",
     },
@@ -24,7 +26,7 @@ function App() {
     },
   };
   return (
-    <>
+    <>  
       <Row>
         <Col>
           <Header></Header>
@@ -35,15 +37,17 @@ function App() {
         <Sidebar></Sidebar>
 
       <div style={styles.contentMargin}>
-      <Routes>
-      <Route exact path="/home" element={<Home/>} />
+
+     <Routes>
       <Route exact path="/profile" element={<Profile/>} />
+      <Route exact path="/home"  element={<Home/>} />
       <Route exact path="/search" element={<Search/>} />
       <Route exact path="/opportunity" element={<Opportunity/>}/>
       <Route exact path="/session" element={<Session/>}/> 
       <Route exact path="/documents" element={<Documents/>}/>
       <Route exacts path="/resources" element={<Resources/>}/>
       </Routes>  
+     
       </div>
 
       </div>
@@ -53,8 +57,7 @@ function App() {
           <Footer></Footer>
         </Col>
       </Row>
-
-    </>
+    </> 
   );
 }
 
