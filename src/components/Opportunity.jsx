@@ -1,47 +1,61 @@
 import React from 'react';
+//import {NavLink} from 'react-router-dom';
 import { useState,useEffect } from 'react';
-import { getOpportunity , getSession} from '../api';
-
+import { getOpportunityFirst,
+         /* getOpportunitySecond,
+         getOpportunityThird */ }  from '../api';
+import Session from './Session';
 
 const Opportunity = () => {
 
-   const[opportunity, setOpportunity]=useState([]);
-   //const[oppID, setOppID]=useState(1)
-   const[session, setSession]=useState([]);
-
-  let oppID=1
-
-   /* let ids=[1,2,3]
-   ids.forEach(x=>setOppID(x)) */
-
-
+   const[opportunityFirst, setOpportunityFirst]=useState([]);
+   /* const[opportunitySecond, setOpportunitySecond]=useState([]);
+   const[opportunityThird, setOpportunityThird]=useState([]); 
+  */
+console.log("oppportunityFirst",opportunityFirst)
     
    
     useEffect(()=>{
-        getOpportunity(oppID).then((resultFromApi)=>{
-            setOpportunity(resultFromApi)
+        getOpportunityFirst().then((resultFromApi)=>{
+            console.log("oppapi",resultFromApi)
+            setOpportunityFirst(resultFromApi)
             })
-        },[oppID]) 
-    
-
-      useEffect(()=>{
-        getSession(oppID).then((resultFromApi)=>{
-
-            setSession(resultFromApi)
+        },[]) 
+      /* useEffect(()=>{
+            getOpportunitySecond().then((resultFromApi)=>{
+                setOpportunitySecond(resultFromApi)
                 })
-        },[oppID])   
+            },[]) 
+    useEffect(()=>{
+            getOpportunityThird().then((resultFromApi)=>{
+                setOpportunityThird(resultFromApi)
+                })
+            },[])      */        
+
+     
 
     return (
         <div>
-           <h1>Here is opportunity!</h1> 
            
-           <h2>{opportunity.NAME}</h2>
-           <p>{opportunity.DESCRIPTION}</p>
+           {/* <h2>{opportunityFirst.NAME}</h2>
+           <p>{opportunityFirst.DESCRIPTION}</p> */}
+           {/* <NavLink exact="true" to={`/session/${opportunityFirst.oppID}`}>
+           <button>Session Details</button>
+           </NavLink> */}
+           <Session opportunityFirst={opportunityFirst} />
 
-           <h1>Session</h1>
-           <h2>{session.PLACEMENTSLOTDATE}</h2>
-           <h2>{session.PLACEMENTSLOTID}</h2>
-           <h2>{session.PLACEMENTSLOTSTARTTIME}</h2>
+           {/* <h2>{opportunitySecond.NAME}</h2>
+           <p>{opportunitySecond.DESCRIPTION}</p>
+           <NavLink exact="true" to={`/session/${opportunitySecond.oppID}`}>
+           <button>Session Details</button>
+           </NavLink>
+
+           <h2>{opportunityThird.NAME}</h2>
+           <p>{opportunityThird.DESCRIPTION}</p>
+           <NavLink exact="true" to={`/session/${opportunityThird.oppID}`}>
+           <button>Session Details</button>
+           </NavLink> 
+   */}
 
            
         </div>

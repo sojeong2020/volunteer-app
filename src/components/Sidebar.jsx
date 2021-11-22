@@ -27,21 +27,21 @@ const Sidebar = () => {
           <CDBSidebarContent className="sidebar-content">
 
             <CDBSidebarMenu>
-              <NavLink exact to="/profile" activeClassName="activeClicked">
+              <NavLink exact="true" to="/profile" activeclassname="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="user">Profile</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/search" activeClassName="activeClicked">
+              <NavLink exact="true" to="/search" activeclassname="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="search">Search</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/opportunity" activeClassName="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="columns">Opportunity</CDBSidebarMenuItem>
+              <NavLink exact="true" to="/opportunity" activeclassname="activeClicked">
+                <CDBSidebarMenuItem className="sidebar-item" icon="columns">Opportunity/Session</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/documents" activeClassName="activeClicked">
+              <NavLink exact="true" to="/documents" activeclassname="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="table">
                   Documents
                 </CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/resources" activeClassName="activeClicked">
+              <NavLink exact="true" to="/resources" activeclassnamee="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="book">
                 Resources
                 </CDBSidebarMenuItem>

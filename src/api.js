@@ -9,38 +9,57 @@ const volunteerApi = axios.create({
         }
     });
 
-export const getOpportunities = (oppID,search) => {
+export const getSearch = (oppID,search) => {
         let path ='https://private-anon-431d9a1c9a-teamkinetictechtest.apiary-proxy.com/techtest/search.htm';
     
         if(search) path += `?recordsPerPage=1&recordsPage=${oppID}&lat=53.6786&lng=-2.5637&orderResultsBy=distance&search=${search[0]}&showShared=true&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
         return volunteerApi
         .get(path)
         .then((response)=>{
-            console.log("oppsFromApi",response.data[0].Results[0])
+            console.log("searchFromApi",response.data[0].Results[0])
             return response.data[0].Results[0];
         }).catch((error)=>
         console.log("error>>>>",error.response))
     }; 
 
-export const getOpportunity = (oppID) => {
-        let path ='/opps.htm';
-    
-        if(oppID) path += `?action=oppDetails&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
+export const getOpportunityFirst = () => {
+        let path ='/opps.htm?action=oppDetails&oppID=1&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9';
         return volunteerApi
         .get(path)
         .then((response)=>{
-            console.log("oppFromApi",response.data[0].Results[0])
+            console.log("oppid-1FromApi",response.data[0].Results[0])
             return response.data[0].Results[0];
         }).catch((error)=>
         console.log("error>>>>",error.response))
     }; 
     
+ /* export const getOpportunitySecond = () => {
+        let path ='/opps.htm?action=oppDetails&oppID=2&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9';
+        return volunteerApi
+        .get(path)
+        .then((response)=>{
+            console.log("oppid-2FromApi",response.data[0].Results[0])
+            return response.data[0].Results[0];
+        }).catch((error)=>
+        console.log("error>>>>",error.response))
+    }; 
+    
+export const getOpportunityThird = () => {
+        let path ='/opps.htm?action=oppDetails&oppID=3&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9';
+        return volunteerApi
+        .get(path)
+        .then((response)=>{
+            console.log("oppid-3FromApi",response.data[0].Results[0])
+            return response.data[0].Results[0];
+        }).catch((error)=>
+        console.log("error>>>>",error.response))
+    };  */
+     
         
-export const getSession = (oppID) => {
+export const getSession = () => {
            
-            let path ='/opps.htm';
+            let path ='/opps.htm?action=sessionDetails&loggedIn=1&oppID=1&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9';
         
-            if(oppID) path += `?action=sessionDetails&loggedIn=1&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
             return volunteerApi
             .get(path)
             .then((response)=>{

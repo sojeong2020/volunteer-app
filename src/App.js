@@ -6,8 +6,8 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Search from './components/Search';
-import Opportunities from './components/Opportunities';
 import Opportunity from './components/Opportunity';
+import Session from './components/Session';
 import Documents from './components/Documents';
 import Resources from './components/Resources';
 import { Col, Row } from 'react-bootstrap';
@@ -39,10 +39,10 @@ function App() {
       <Route exact path="/home" element={<Home/>} />
       <Route exact path="/profile" element={<Profile/>} />
       <Route exact path="/search" element={<Search/>} />
-      <Route exact path="/opportunities" element={<Opportunities/>}/>
       <Route exact path="/opportunity" element={<Opportunity/>}/>
+      <Route exact path="/session" element={<Session/>}/> 
       <Route exact path="/documents" element={<Documents/>}/>
-      <Route exact path="/resources" element={<Resources/>}/>
+      <Route exacts path="/resources" element={<Resources/>}/>
       </Routes>  
       </div>
 
