@@ -1,7 +1,10 @@
 import React, { useState} from 'react';
 import {postDocuments} from '../api';
+import {useParams} from 'react-router-dom';
 
 const Documents = () => {
+    const {oppID}=useParams();
+    console.log(oppID,"OPPIDfromDocuments")
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [selectedFile, setSelectedFile]=useState();
@@ -15,7 +18,7 @@ const Documents = () => {
         dataArray.append("Description", description);
         dataArray.append("selectedFile", selectedFile);
 
-        postDocuments(dataArray)
+        postDocuments(oppID,dataArray)
 
     };
 

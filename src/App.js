@@ -6,7 +6,8 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Search from './components/Search';
-import Opportunity from './components/Opportunity';
+import Opportunities from './components/Opportunities';
+import Experience from './components/Experience';
 import Session from './components/Session';
 import Documents from './components/Documents';
 import Resources from './components/Resources';
@@ -40,11 +41,12 @@ const styles = {
 
      <Routes>
       <Route exact path="/profile" element={<Profile/>} />
-      <Route exact path="/home"  element={<Home/>} />
+      <Route exact path="/"  element={<Home/>} />
       <Route exact path="/search" element={<Search/>} />
-      <Route exact path="/opportunity" element={<Opportunity/>}/>
-      <Route exact path="/session" element={<Session/>}/> 
-      <Route exact path="/documents" element={<Documents/>}/>
+      <Route exact path="/opportunities" element={<Opportunities/>}/>
+      <Route exact path="/experience/:oppID" element={<Experience/>}/>
+      <Route exact path="/session/:oppID" element={<Session/>}/> 
+      <Route exact path="/documents/:oppID" element={<Documents/>}/>
       <Route exacts path="/resources" element={<Resources/>}/>
       </Routes>  
      

@@ -16,7 +16,7 @@ const Sidebar = () => {
         <CDBSidebar textColor="#fff" backgroundColor="#333">
           <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
             <a
-              href="/home"
+              href="/"
               className="sidebar-header"
               style={{ color: 'inherit' }}
             >
@@ -33,14 +33,14 @@ const Sidebar = () => {
               <NavLink exact="true" to="/search" activeclassname="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="search">Search</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact="true" to="/opportunity" activeclassname="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="columns">Opportunity/Session</CDBSidebarMenuItem>
+              <NavLink exact="true" to="/opportunities" activeclassname="activeClicked">
+                <CDBSidebarMenuItem className="sidebar-item" icon="columns">Opportunities</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact="true" to="/documents" activeclassname="activeClicked">
+              {/* <NavLink exact="true" to="/documents" activeclassname="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="table">
                   Documents
                 </CDBSidebarMenuItem>
-              </NavLink>
+              </NavLink> */}
               <NavLink exact="true" to="/resources" activeclassnamee="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="book">
                 Resources
