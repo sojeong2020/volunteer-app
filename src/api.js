@@ -90,6 +90,25 @@ export const updateJoin =(oppID,slotID,updatingJoin)=>{
             console.log("error>>>>",error.response))
 }
 
-        
+export const postDocuments =(dataArray)=>{
+        axios
+        .post("https://private-anon-d6daab494a-teamkinetictechtest.apiary-proxy.com/techtest/opps.htm?action=putOppVolunteerDoc&oppID=1&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&", 
+           dataArray, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              'key': process.env.REACT_APP_API_KEY,
+              'pwd': process.env.REACT_APP_PASSWORD
+            }
+          })
+          .then((response) => {
+            // successfully uploaded response
+            console.log("posting new doc")
+            console.log(response.data[0])
+            return response.data[0]
+          })
+          .catch((error) => {
+            // error response
+            console.log("error>>>>",error.response)
+          });
 
-    
+}
