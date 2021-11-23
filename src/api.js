@@ -43,7 +43,7 @@ export const getOpportunityFirst = () => {
         console.log("error>>>>",error.response))
     }; 
     
-  export const getOpportunitySecond = () => {
+export const getOpportunitySecond = () => {
         let path ='/opps.htm?action=oppDetails&oppID=2&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9';
         return volunteerApi
         .get(path)
@@ -79,22 +79,21 @@ export const getSession = (oppID) => {
             console.log("error>>>>",error.response))
         };
 
-export const updateJoin =(slotID)=>{
-    const updatingJoin={slotID:slotID}
-        
-      
-    let path='https://private-anon-d6daab494a-teamkinetictechtest.apiary-proxy.com/techtest/opps.htm?action=joinSession&oppID=1&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&'
-    return volunteerApi
-            .post(path,updatingJoin)
+export const putJoin =(oppID,joinSession,putData)=>{
+             console.log(putData,"putdata")
+             console.log(oppID,"OPPID")
+            let path=`/opps.htm?action=joinSession&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&slotID=${joinSession}`
+            return volunteerApi
+            .post(path,putData)
             .then((response)=>{
                 console.log("posting new slotID")
-                console.log("updateJoin",response.data[0].Results[0])
-                return response.data[0].Results[0];
+                console.log("updateJoin",response.data[0].results)
+                return response.data[0].results;
             }).catch((error)=>
             console.log("error>>>>",error.response))
 }  
 
- export const postDocuments =(oppID,dataArray)=>{
+export const postDocuments =(oppID,dataArray)=>{
         axios
         .post(`https://private-anon-d6daab494a-teamkinetictechtest.apiary-proxy.com/techtest/opps.htm?action=putOppVolunteerDoc&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&`, 
            dataArray, {
