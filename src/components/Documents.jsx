@@ -7,7 +7,8 @@ const Documents = () => {
     console.log(oppID,"OPPIDfromDocuments")
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [selectedFile, setSelectedFile]=useState();
+    const [selectedFile, setSelectedFile] =useState();
+    const [msg,setMsg] =useState("");
 
      
     const submitForm = (event) => {
@@ -19,6 +20,7 @@ const Documents = () => {
         dataArray.append("selectedFile", selectedFile);
 
         postDocuments(oppID,dataArray)
+        setMsg("File has been successfully uploaded!!")
 
     };
 
@@ -50,6 +52,7 @@ const Documents = () => {
                  <br />
 
                  <button type="submit" >Submit</button>
+                 <p>{msg}</p>
             </form>  
 
              

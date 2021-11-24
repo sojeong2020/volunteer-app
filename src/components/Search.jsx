@@ -1,31 +1,42 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {getSearch} from '../api';
 
 const Search = () => {
 
-    let search=["football"]
-    
-    let oppID=1
-   const[opportunities, setOpportunities]=useState([]);
+const [search,setSearch]=useState("");
+console.log("searchterm",search)
 
-    console.log("opps",opportunities)
+const [result,setResult]=useState([]);
+console.log("result",result)
+       
    
-    useEffect(()=>{
-        getSearch(oppID,search[0]).then((resultFromApi)=>{
-            setOpportunities(resultFromApi)
-            })
-        },[oppID]) 
+    const handleClick=(event)=>{
+        event.preventDefault();
 
-    return (
-        <div>
-            <h1>OPPS</h1>
-            <h2>Name: {opportunities.NAME}</h2>
-            <h2>Name-Welsh: {opportunities.NAMEALTLANG}</h2>
-            <h2>Discription:{opportunities.DESCRIPTION}</h2>
-            <h2>Discription-Welsh: {opportunities.DESCRIPTIONALTLNG}</h2> 
+     getSearch(search).then((resultFromApi)=>{
+         setResult(resultFromApi)
+     })
+    
+    }
+        
+return (
+         <div>
+            
+             <input 
+             type="text"
+             onChange={(event)=>setSearch(event.target.value)}
+             placeholder="search"
+            />
+            <button onClick={handleClick}>Search</button>
 
-        </div>
+            
+            <h2>Name: {result.NAME}</h2>
+            <h2>Name-Welsh: {result.NAMEALTLANG}</h2>
+            <h2>Discription:{result.DESCRIPTION}</h2>
+            <h2>Discription-Welsh: {result.DESCRIPTIONALTLNG}</h2> 
+
+        </div> 
     );
 };
 

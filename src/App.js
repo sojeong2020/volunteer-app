@@ -42,7 +42,7 @@ const styles = {
      <Routes>
       <Route exact path="/profile" element={<Profile/>} />
       <Route exact path="/"  element={<Home/>} />
-      <Route exact path="/search" element={<Search/>} />
+      <Route exact path="/search" element={<Search/>} /> 
       <Route exact path="/opportunities" element={<Opportunities/>}/>
       <Route exact path="/experience/:oppID" element={<Experience/>}/>
       <Route exact path="/session/:oppID" element={<Session/>}/> 

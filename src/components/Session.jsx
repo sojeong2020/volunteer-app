@@ -23,17 +23,19 @@ const Session = () => {
     const submitForm = (event)=>{
         event.preventDefault();
 
-        const putData= {
+        const data= {
             success:false
         }
 
-        putJoin(oppID,joinSession,putData)
+        putJoin(oppID,joinSession,data)
         .then((resultFromApi)=>{
             console.log(resultFromApi)
             if(resultFromApi.success===true){
-                setMsg("THANK YOU FOR JOINING THE SESIION")
+                setMsg(alert("THANK YOU FOR JOINING THE SESIION"))
+                
             }else{
-                setMsg("FULL OR ALREADY JOINED")
+                setMsg(alert("FULL OR ALREADY JOINED"))
+
             }
             
         })
@@ -54,8 +56,6 @@ const Session = () => {
             <button 
             type="submit"
             onClick={(e)=>setJoinsession(session.PLACEMENTSLOTID)} 
-            
-            placeholder={"join"}
             >Join</button>
             </form>
             <p>{msg}</p>

@@ -9,6 +9,8 @@ const Experience = () => {
     const {oppID}= useParams();
 
     const [update, setUpdate]=useState([]);
+    const [msg,setMsg] =useState("");
+
 
     const submitForm = (event)=>{
         event.preventDefault();
@@ -16,6 +18,15 @@ const Experience = () => {
         const data= {experience: update}
 
         updateExperience(oppID, data)
+        .then((resultFromApi)=>{
+            console.log(resultFromApi)
+            if(resultFromApi.status===200){
+                setMsg("successfully updated!!")
+            }else {
+                setMsg("Something went wrong!")
+            }
+        })
+       
     }
 
 
@@ -31,6 +42,7 @@ const Experience = () => {
             />
             <button type="submit">update</button>
             </form>
+            <p>{msg}</p>
         </div>
     );
 };

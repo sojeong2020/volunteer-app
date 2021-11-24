@@ -20,10 +20,10 @@ export const getProfile = ()=>{
 
 }
 
-export const getSearch = (oppID,search) => {
-        let path ='https://private-anon-431d9a1c9a-teamkinetictechtest.apiary-proxy.com/techtest/search.htm';
+ export const getSearch = (search) => {
+        let path ='https://private-anon-d6daab494a-teamkinetictechtest.apiary-proxy.com/techtest'
     
-        if(search) path += `?recordsPerPage=1&recordsPage=${oppID}&lat=53.6786&lng=-2.5637&orderResultsBy=distance&search=${search[0]}&showShared=true&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
+        if(search) path += `/search.htm?recordsPerPage=1&recordsPage=1&lat=52.46&lng=-1.92&orderResultsBy=distance&search=${search}&showShared=true&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
         return volunteerApi
         .get(path)
         .then((response)=>{
@@ -32,7 +32,7 @@ export const getSearch = (oppID,search) => {
         }).catch((error)=>
         console.log("error>>>>",error.response))
     }; 
-
+ 
 export const getOpportunityFirst = () => {
         return volunteerApi
         .get('/opps.htm?action=oppDetails&oppID=1&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9')
@@ -79,12 +79,12 @@ export const getSession = (oppID) => {
             console.log("error>>>>",error.response))
         };
 
-export const putJoin =(oppID,joinSession,putData)=>{
-             console.log(putData,"putdata")
+export const putJoin =(oppID,joinSession,data)=>{
+             console.log(data,"data")
              console.log(oppID,"OPPID")
             let path=`/opps.htm?action=joinSession&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&slotID=${joinSession}`
             return volunteerApi
-            .post(path,putData)
+            .post(path,data)
             .then((response)=>{
                 console.log("posting new slotID")
                 console.log("updateJoin",response.data[0].results)
