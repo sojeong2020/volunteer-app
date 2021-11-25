@@ -3,7 +3,6 @@ import { useState,useEffect } from 'react';
 import { getOpportunityFirst,
         getOpportunitySecond,
         getOpportunityThird  }  from '../api';
-//import {Link} from 'react-router-dom';
 import football1 from '../img/football1.jpg';
 import football2 from '../img/football2.jpg';
 import swim from '../img/swim.jpg';

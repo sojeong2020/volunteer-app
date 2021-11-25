@@ -8,8 +8,6 @@ import tea from '../img/tea.jpg';
 import { Card, Container, Row, Col} from 'react-bootstrap';
 
 
-
-
 const Resources = () => {
     return (
     <>

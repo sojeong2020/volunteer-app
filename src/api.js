@@ -11,7 +11,7 @@ const volunteerApi = axios.create({
 
 export const getProfile = ()=>{
     return volunteerApi
-    .get('https://private-anon-9bf83f9908-teamkinetictechtest.apiary-proxy.com/techtest/volunteer.htm?action=getProfile&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9')
+    .get('/volunteer.htm?action=getProfile&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9')
     .then((response)=>{
         console.log("profile",response.data[0].results)
         return response.data[0].results
@@ -21,7 +21,7 @@ export const getProfile = ()=>{
 }
 
  export const getSearch = (search) => {
-        let path ='https://private-anon-d6daab494a-teamkinetictechtest.apiary-proxy.com/techtest'
+        let path =''
     
         if(search) path += `/search.htm?recordsPerPage=1&recordsPage=1&lat=52.46&lng=-1.92&orderResultsBy=distance&search=${search}&showShared=true&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
         return volunteerApi
@@ -67,10 +67,8 @@ export const getOpportunityThird = () => {
      
         
 export const getSession = (oppID) => {
-           
-            let path =`/opps.htm?action=sessionDetails&loggedIn=1&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
-        
-            return volunteerApi
+           let path =`/opps.htm?action=sessionDetails&loggedIn=1&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9`;
+           return volunteerApi
             .get(path)
             .then((response)=>{
                 console.log("session",response.data[0].Results[0])
@@ -80,8 +78,6 @@ export const getSession = (oppID) => {
         };
 
 export const putJoin =(oppID,joinSession,data)=>{
-             console.log(data,"data")
-             console.log(oppID,"OPPID")
             let path=`/opps.htm?action=joinSession&oppID=${oppID}&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&slotID=${joinSession}`
             return volunteerApi
             .post(path,data)
@@ -115,27 +111,6 @@ export const postDocuments =(oppID,dataArray)=>{
           });
 }
 
-/* export const updateExperience =(oppID,data)=>{
-    axios
-    .put(`https://private-anon-d6daab494a-teamkinetictechtest.apiary-proxy.com/techtest/volunteer.htm?action=putOppExperience&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&oppID=${oppID}`,
-    data,{
-        headers: {
-          'key': process.env.REACT_APP_API_KEY,
-          'pwd': process.env.REACT_APP_PASSWORD
-        }
-      })
-    .then((response) => {
-        // successfully uploaded response
-        console.log("updating")
-        console.log(response.data[0])
-        return response.data[0]
-      })
-      .catch((error) => {
-        // error response
-        console.log("error>>>>",error.response)
-      });
-} */
-
 export const updateExperience =(oppID,data)=>{
     let path=`/volunteer.htm?action=putOppExperience&GUID=846E2514-A679-41D1-AB3B-DEA93219F4B9&oppID=${oppID}`
     return volunteerApi
@@ -147,7 +122,6 @@ export const updateExperience =(oppID,data)=>{
         return response
       })
       .catch((error) => {
-        // error response
         console.log("error>>>>",error.response)
       });
 }
