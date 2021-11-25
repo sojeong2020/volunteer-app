@@ -1,8 +1,8 @@
-import React from 'react';
+/* import React from 'react';
 
 const Search = () => {
 
-/* const [search,setSearch]=useState("");
+ const [search,setSearch]=useState("");
 console.log("searchterm",search)
 
 const [result,setResult]=useState([]);
@@ -16,11 +16,11 @@ console.log("result",result)
          setResult(resultFromApi)
      })
     
-    } */
+    } 
         
 return (
          <div>
-            {/* <label>
+             <label>
                 Search for opportunities
              <input 
              type="text"
@@ -29,15 +29,15 @@ return (
             />
             </label>
             <button onClick={handleClick}>Search</button>
- */}
+ 
             
         
            
-             {/* <h2>{result.DESCRIPTION}</h2>  */}
+              <h2>{result.DESCRIPTION}</h2>  
            
 
         </div> 
     );
 };
 
-export default Search;
+export default Search; */

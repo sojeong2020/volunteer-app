@@ -32,11 +32,9 @@ const styles = {
         </Col>
       </Row>
       
-      <div style={styles.contentDiv}>
+    <div style={styles.contentDiv}>
         <Sidebar></Sidebar>
-
-      <div style={styles.contentMargin}>
-
+    <div style={styles.contentMargin}>
      <Routes>
       <Route exact path="/profile" element={<Profile/>} />
       <Route exact path="/"  element={<Home/>} />
@@ -47,14 +45,12 @@ const styles = {
       <Route exact path="/documents/:oppID" element={<Documents/>}/>
       <Route exacts path="/resources" element={<Resources/>}/>
       </Routes>  
-     
-      </div>
-
-      </div>
+    </div>
+    </div>
       
       <Row>
         <Col>
-          <Footer></Footer>
+          <Footer />
         </Col>
       </Row>
     </> 

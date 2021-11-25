@@ -2,10 +2,11 @@
     background-color: rgb(2, 59, 7);
     color:#fff;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;   
     justify-content: right;
     align-items: baseline;
-    width: 100%;
+    width: 100vw;
+    margin-top: 0;;
   }
 
   .search-bar{

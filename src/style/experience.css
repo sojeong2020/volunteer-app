@@ -1,9 +1,14 @@
 .form{
     margin:20px;
 }
-.row{
+/* .row{
+    margin-top:0px;
+    width: 60rem;
+} */
+.experience-row{
     margin-top:40px;
     width: 60rem;
+
 }
 .button{
     margin-top: 20px;

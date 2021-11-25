@@ -37,7 +37,7 @@ const Experience = () => {
         <div>
         <Container fluid className="form" >
             <h1>Update user experience</h1>
-            <Row className="row">
+            <Row className="experience-row">
                 <Col>
             <Form onSubmit={submitForm}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">

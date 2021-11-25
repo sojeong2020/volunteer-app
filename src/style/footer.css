@@ -1,7 +1,12 @@
 .footer{
     background-color: rgb(224, 235, 235);
     text-align: center;
-    padding: 20px 5px;
-    
+    padding: 20px 5px; 
+    width:100vw;
+    margin-top: 0;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+   
 
 }

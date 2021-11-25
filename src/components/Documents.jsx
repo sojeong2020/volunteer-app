@@ -30,7 +30,7 @@ const Documents = () => {
     
  return (
         <>
-        <Container fluid className="form" >
+        <Container fluid className="doc-form" >
         <h2>Qualifications, ID, and other suupporting documents</h2>
         <Row className="form-row">
         <Col>

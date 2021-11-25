@@ -38,7 +38,7 @@ return (
         <Col>
         <InputGroup className="search-bar">
         <FormControl
-        placeholder="Search"
+        placeholder="football / swim / club "
         onChange={(event)=>setSearch(event.target.value)}
         />
         <Button variant="outline-secondary" /* id="button-addon2" */ onClick={handleClick}>
@@ -72,14 +72,14 @@ return (
     </Col>
     </Row>
 
-   {/*  <Row>
+    <Row>
     <Col className="result">
     <h2>{result.NAME}</h2>
     <div className="description">
     <h3>{result.DESCRIPTION}</h3>
     </div>
     </Col>
-    </Row> */}
+    </Row> 
     </Container>
     );
 };
