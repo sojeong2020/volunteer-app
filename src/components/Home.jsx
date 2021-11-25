@@ -6,15 +6,14 @@ import { Container, Row, Col, InputGroup, FormControl,Button } from 'react-boots
 import { FcRating } from 'react-icons/fc';
 
 
-const Home = ({t, i18n}) => {
-    
+const Home = ({t, lang}) => {
+        console.log(lang,"lang in home!!!!")
 
-const [search,setSearch]=useState("");
-console.log(search,"searchTerm")    
+    const [search,setSearch]=useState("");
+    const [result,setResult]=useState([]);
+    const [profile, setProfile]=useState([]);
 
-const [result,setResult]=useState([]);
-   console.log(result,"resultFromSearching")    
-const[profile, setProfile]=useState([]);
+    console.log(result,"result in Home")
 
     useEffect(()=>{
         getProfile().then((resultFromApi)=>{
@@ -75,9 +74,9 @@ return (
 
     <Row>
     <Col className="result">
-    <h2>{result.NAME}</h2>
+    <h2>{lang==="en" ? result.NAME: result.NAMEALTLANG }</h2>
     <div className="description">
-    <h3>{result.DESCRIPTION}</h3>
+    <h3>{lang==="en" ? result.DESCRIPTION: result.DESCRIPTIONALTLNG}</h3>
     </div>
     </Col>
     </Row> 

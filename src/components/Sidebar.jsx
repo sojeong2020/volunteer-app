@@ -27,10 +27,7 @@ const Sidebar = ({t, i18n}) => {
           <CDBSidebarContent className="sidebar-content">
 
             <CDBSidebarMenu>
-              <NavLink exact="true" to="/profile" activeclassname="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="user">{t('profile')}</CDBSidebarMenuItem>
-              </NavLink>
-              
+             
               <NavLink exact="true" to="/opportunities" activeclassname="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="columns">{t('opportunities')}</CDBSidebarMenuItem>
               </NavLink>

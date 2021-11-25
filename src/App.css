@@ -10,6 +10,27 @@ body{
   margin:0;
 }
 
+/* --------------------Header---------------------------- */
 
+.header{
+  background-color: rgb(2, 59, 7);
+  color:#fff;
+  display: flex;
+  flex-wrap: wrap;   
+  justify-content: right;
+  align-items: baseline;
+  width: 100vw;
+  margin-top: 0;;
+}
+
+.search-bar{
+  margin-right: 60px;
+}
+.lan-button{
+    margin-right: 100px;
+}
+.lan-button-en{
+    margin:15px;
+}
 
 
