@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.home{
+    background-color: cadetblue;
+    margin-top:20px;
+    text-align: center;
+    
+}
+.name{
+    padding:50px;
+    font-family: 'Indie Flower', cursive;
+
+}
+.user-info{
+    display:inline-block;
+    padding:10px 40px;
+    
+}
+.search-bar{
+    margin-top:20px;
+}
+.result{
+    margin-top:20px;
+    color:darkblue;
+}
+.description{
+     margin-top:15px;
+}

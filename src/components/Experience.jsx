@@ -2,6 +2,8 @@ import React from 'react';
 import {updateExperience} from '../api';
 import {useState} from 'react';
 import { useParams } from 'react-router-dom';
+import '../style/experience.css';
+import {Form,Button, Container,Row,Col} from 'react-bootstrap';
 
 
 const Experience = () => {
@@ -21,7 +23,7 @@ const Experience = () => {
         .then((resultFromApi)=>{
             console.log(resultFromApi)
             if(resultFromApi.status===200){
-                setMsg("successfully updated!!")
+                setMsg("Successfully Updated!!")
             }else {
                 setMsg("Something went wrong!")
             }
@@ -33,16 +35,21 @@ const Experience = () => {
 
     return (
         <div>
+        <Container fluid className="form" >
             <h1>Update user experience</h1>
-            <form onSubmit={submitForm}>
-            <input 
-            type="text"
-            onChange={(e)=>setUpdate(e.target.value)}
-            placeholder={"experience"}
-            />
-            <button type="submit">update</button>
-            </form>
-            <p>{msg}</p>
+            <Row className="row">
+                <Col>
+            <Form onSubmit={submitForm}>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Control placeholder="experience" required as="textarea" rows={6} onChange={(e)=>setUpdate(e.target.value)} />
+            </Form.Group>
+            <Button className="button" type="submit">update</Button>
+            </Form>
+           
+          </Col>
+          </Row> 
+          <h2 className="msg">{msg}</h2> 
+        </Container>
         </div>
     );
 };

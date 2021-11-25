@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import {postDocuments} from '../api';
 import {useParams} from 'react-router-dom';
+import { Form, Button, Container, Row, Col} from 'react-bootstrap';
+import '../style/doc.css'
 
 const Documents = () => {
     const {oppID}=useParams();
@@ -27,36 +29,37 @@ const Documents = () => {
  
     
  return (
-        <div>
-            <h1>Qualifications, ID, and other suupporting documents</h1>
-            <form onSubmit={submitForm}>
-            <input
-                 type="text"
-                 onChange={(e)=>setName(e.target.value)}
-                 placeholder={"Name"}
-                /> 
-                <br />
+        <>
+        <Container fluid className="form" >
+        <h2>Qualifications, ID, and other suupporting documents</h2>
+        <Row className="form-row">
+        <Col>
+        <Form onSubmit={submitForm}>
 
-                <input
-                 type="text"
-                 onChange={(e)=>setDescription(e.target.value)}
-                 placeholder={"Description"}
+        <Form.Group >
+        <Form.Label>Name</Form.Label>
+        <Form.Control type="text" placeholder="Name" required onChange={(e)=>setName(e.target.value)} />
+        </Form.Group>
 
-                />
-                <br/>
+        <Form.Group >
+        <Form.Label>Description</Form.Label>
+        <Form.Control type="text" placeholder="Description" required onChange={(e)=>setDescription(e.target.value)} />
+        </Form.Group>
 
-                <input 
-                 type="file"
-                 
-                 onChange={(e)=>setSelectedFile(e.target.files)} />
-                 <br />
+        <Form.Group >
+        <Form.Label>File </Form.Label>
+        <Form.Control type="file" required onChange={(e)=>setSelectedFile(e.target.files)} />
+        </Form.Group>
 
-                 <button type="submit" >Submit</button>
-                 <p>{msg}</p>
-            </form>  
+        <Button className="button" type="submit" >Upload</Button>
 
-             
-        </div>
+        </Form>
+        </Col>
+        </Row>
+        <h2 className="msg">{msg}</h2>
+
+        </Container>     
+        </>
     );
 };
 

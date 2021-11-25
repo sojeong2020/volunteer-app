@@ -4,6 +4,7 @@ import '../style/footer.css';
 const Footer = () => {
     return (
         <div className="footer">
+            <p>footer</p>
             <p>Server-side routing
 The server has views for every single route of our app.
 User navigates to /about, the browser sends a GET request to /about and our server responds with the corresponding view.

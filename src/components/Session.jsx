@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import { getSession ,putJoin} from '../api';
 import { useParams} from 'react-router-dom';
+import { Button, Card, ListGroup,Container,Row} from 'react-bootstrap';
+import '../style/session.css';
 
 const Session = () => {
 
@@ -11,6 +13,7 @@ const Session = () => {
   const[session, setSession]=useState([]);
   const[joinSession,setJoinsession]= useState([]);
   const [msg,setMsg]=useState("");
+
 
   useEffect(()=>{
     getSession(oppID).then((resultFromApi)=>{
@@ -31,10 +34,10 @@ const Session = () => {
         .then((resultFromApi)=>{
             console.log(resultFromApi)
             if(resultFromApi.success===true){
-                setMsg(alert("THANK YOU FOR JOINING THE SESIION"))
+                setMsg("THANK YOU FOR JOINING THE SESSION!")
                 
             }else{
-                setMsg(alert("FULL OR ALREADY JOINED"))
+                setMsg("FULL OR ALREADY JOINED!")
 
             }
             
@@ -43,25 +46,34 @@ const Session = () => {
     
 
     return (
-        <>
-        <div>
-            <h1>Session</h1>
-            <h2>Date :{session.PLACEMENTSLOTDATE}</h2> 
-            <h2>Start at :{session.PLACEMENTSLOTSTARTTIME}</h2> 
-            <h2>Hours :{session.PLACEMENTSLOTHOURS}</h2> 
-        </div>
+    <>
+    <Container fluid className="session" >
+    <Row>
+    <Card style={{ width: '30rem' }}>
+    <Card.Body>
+    <Card.Title><strong>Session</strong></Card.Title>
+    <ListGroup variant="flush">
+    <ListGroup.Item><strong>Date</strong> {session.PLACEMENTSLOTDATE}</ListGroup.Item>
+    <ListGroup.Item><strong>Start at</strong> {session.PLACEMENTSLOTSTARTTIME}</ListGroup.Item>
+    <ListGroup.Item><strong>Hours</strong> {session.PLACEMENTSLOTHOURS}</ListGroup.Item>
+    </ListGroup>
+    </Card.Body>
+    </Card>
+    </Row>
 
-        <div>
-            <form onSubmit={submitForm}>
-            <button 
+    <Row className="join">
+    <form onSubmit={submitForm}>
+        <Button 
             type="submit"
             onClick={(e)=>setJoinsession(session.PLACEMENTSLOTID)} 
-            >Join</button>
+            >Join</Button>
             </form>
-            <p>{msg}</p>
-        </div>            
-            
-        </>
+    </Row>
+    <Row className="msg">
+        <h2 >{msg}</h2>
+    </Row>
+    </Container>
+    </>
     );
 
     };
