@@ -18,8 +18,8 @@ const Resources = () => {
     <Row>
 
     <h1>Resources</h1>
-    <Col>
-    <Card style={{ width: '18rem' }}>
+    <Col sm={12} md={12} lg={4}>
+    <Card>
     <Card.Img variant="top" src={movie} />
     <Card.Body>
     <Card.Title>HANDBOOK</Card.Title>
@@ -28,8 +28,8 @@ const Resources = () => {
     </Card>
     </Col>
 
-    <Col>
-    <Card style={{ width: '18rem' }}>
+    <Col sm={12} md={12} lg={4}>
+    <Card>
     <Card.Img variant="top" src={nasa} />
     <Card.Body>
     <Card.Title>NEWS</Card.Title>
@@ -38,8 +38,8 @@ const Resources = () => {
     </Card>
     </Col>
 
-    <Col>
-    <Card style={{ width: '18rem' }}>
+    <Col sm={12} md={12} lg={4}>
+    <Card>
     <Card.Img variant="top" src={tea} />
     <Card.Body>
     <Card.Title>DOCUMENT</Card.Title>

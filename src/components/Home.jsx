@@ -6,7 +6,8 @@ import { Container, Row, Col, InputGroup, FormControl,Button } from 'react-boots
 import { FcRating } from 'react-icons/fc';
 
 
-const Home = () => {
+const Home = ({t, i18n}) => {
+    
 
 const [search,setSearch]=useState("");
 console.log(search,"searchTerm")    
@@ -41,8 +42,8 @@ return (
         placeholder="football / swim / club "
         onChange={(event)=>setSearch(event.target.value)}
         />
-        <Button variant="outline-secondary" /* id="button-addon2" */ onClick={handleClick}>
-        Search
+        <Button variant="outline-secondary" onClick={handleClick}>
+        {t('search')}
         </Button>
         </InputGroup>
         </Col>
@@ -52,7 +53,7 @@ return (
         <Col>
         <div className="home">
 
-        <h2 className="name">Hello {profile.FirstName}</h2>
+        <h2 className="name">{t('hello')} {profile.FirstName}</h2>
         <div className="user-info">
         <h2><FcRating /></h2>
         <p>{profile.BadgeRankNextText}</p>
@@ -60,12 +61,12 @@ return (
 
         <div className="user-info">
         <h2>{profile.VolLoggedHours}</h2>
-        <p>Hours Logged</p>
+        <p>{t('hourslogged')}</p>
         </div>
 
         <div className="user-info">
         <h2>{profile.ThumbsUp}</h2>
-        <p>ThumbsUp</p>
+        <p>{t('thumbsup')}</p>
         </div>  
 
         </div>

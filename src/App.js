@@ -5,17 +5,20 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Profile from './components/Profile';
-//import Search from './components/Search';
 import Opportunities from './components/Opportunities';
 import Experience from './components/Experience';
 import Session from './components/Session';
 import Documents from './components/Documents';
 import Resources from './components/Resources';
 import { Col, Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 
 function App() {
 
-const styles = {
+  const { t, i18n } = useTranslation();
+
+  const styles = {
     contentDiv: {
       display: "flex",
     },
@@ -28,17 +31,17 @@ const styles = {
     <>  
       <Row>
         <Col>
-          <Header />
+          <Header /> 
         </Col>
       </Row>
       
     <div style={styles.contentDiv}>
-        <Sidebar></Sidebar>
+        <Sidebar t={t} i18n={i18n} />
     <div style={styles.contentMargin}>
      <Routes>
+      
+      <Route exact path="/" element={<Home t={t} i18n={i18n}/>} />
       <Route exact path="/profile" element={<Profile/>} />
-      <Route exact path="/"  element={<Home/>} />
-      {/* <Route exact path="/search" element={<Search />} />  */}
       <Route exact path="/opportunities" element={<Opportunities/>}/>
       <Route exact path="/experience/:oppID" element={<Experience/>}/>
       <Route exact path="/session/:oppID" element={<Session/>}/> 
@@ -50,7 +53,7 @@ const styles = {
       
       <Row>
         <Col>
-          <Footer />
+          <Footer t={t} i18n={i18n}/>
         </Col>
       </Row>
     </> 

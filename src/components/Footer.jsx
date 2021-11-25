@@ -1,11 +1,11 @@
 import React from 'react';
 import '../style/footer.css';
 
-const Footer = () => {
+const Footer = ({t, i18n}) => {
     return (
         <div className="footer">
-            <p>Contact</p><br />
-            <p>Policies</p>
+            <p><strong>{t('contact')}</strong></p><br />
+            <p><strong>{t('policies')}</strong></p>
         </div>
     );
 };

@@ -10,7 +10,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
  
-const Sidebar = () => {
+const Sidebar = ({t, i18n}) => {
     return (
       <div className="sidebar">
         <CDBSidebar textColor="#fff" backgroundColor="#333">
@@ -20,7 +20,7 @@ const Sidebar = () => {
               className="sidebar-header"
               style={{ color: 'inherit' }}
             >
-              Home
+              {t('home')}
             </a>
           </CDBSidebarHeader>
    
@@ -28,19 +28,13 @@ const Sidebar = () => {
 
             <CDBSidebarMenu>
               <NavLink exact="true" to="/profile" activeclassname="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="user">Profile</CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="sidebar-item" icon="user">{t('profile')}</CDBSidebarMenuItem>
               </NavLink>
-              {/* <NavLink exact="true" to="/search" activeclassname="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="search">Search</CDBSidebarMenuItem>
-              </NavLink>  */}
+              
               <NavLink exact="true" to="/opportunities" activeclassname="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="columns">Opportunities</CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="sidebar-item" icon="columns">{t('opportunities')}</CDBSidebarMenuItem>
               </NavLink>
-              {/* <NavLink exact="true" to="/documents" activeclassname="activeClicked">
-                <CDBSidebarMenuItem className="sidebar-item" icon="table">
-                  Documents
-                </CDBSidebarMenuItem>
-              </NavLink> */}
+              
               <NavLink exact="true" to="/resources" activeclassnamee="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="book">
                 Resources
