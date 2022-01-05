@@ -74,9 +74,10 @@ return (
 
     <Row>
     <Col className="result">
-    <h2>{lang==="en" ? result.NAME: result.NAMEALTLANG }</h2>
+   <h2>{lang ==="en" || lang === '' ? result.NAME: result.NAMEALTLANG }</h2> 
+
     <div className="description">
-    <h3>{lang==="en" ? result.DESCRIPTION: result.DESCRIPTIONALTLNG}</h3>
+    <h3>{lang ==="en" || lang === '' ? result.DESCRIPTION: result.DESCRIPTIONALTLNG}</h3>
     </div>
     </Col>
     </Row> 
