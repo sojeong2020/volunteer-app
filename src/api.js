@@ -71,8 +71,8 @@ export const getSession = (oppID) => {
            return volunteerApi
             .get(path)
             .then((response)=>{
-                console.log("session",response.data[0].Results[0])
-                return response.data[0].Results[0];
+                console.log("session",response.data[0].Results)
+                return response.data[0].Results;
             }).catch((error)=>
             console.log("error>>>>",error.response))
         };

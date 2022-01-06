@@ -5,13 +5,12 @@ import {
   CDBSidebarContent,
   CDBSidebarHeader,
   CDBSidebarMenu,
-  CDBSidebarMenuItem,
+  CDBSidebarMenuItem
   
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
  
 const Sidebar = ({t}) => {
-  
     return (
       <div className="sidebar">
         <CDBSidebar textColor="#fff" backgroundColor="#333">
@@ -33,7 +32,7 @@ const Sidebar = ({t}) => {
                 <CDBSidebarMenuItem className="sidebar-item" icon="columns">{t('opportunities')}</CDBSidebarMenuItem>
               </NavLink>
               
-              <NavLink exact="true" to="/resources" activeclassnamee="activeClicked">
+              <NavLink exact="true" to="/resources" activeclassname="activeClicked">
                 <CDBSidebarMenuItem className="sidebar-item" icon="book">
                 Resources
                 </CDBSidebarMenuItem>

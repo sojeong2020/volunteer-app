@@ -1,12 +1,12 @@
 .session{
     padding-top: 50px;
     padding-left:100px;
-    
 }
-.join{
-    padding:20px 180px;
-}
-.msg{
+
+h2{
     color:darkred;
     
+}
+.session-card {
+    margin-bottom: 10px;
 }

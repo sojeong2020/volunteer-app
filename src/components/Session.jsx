@@ -10,7 +10,7 @@ const Session = ({t}) => {
   const {oppID}=useParams();
   console.log(oppID,"oppIDfromuseParam")
 
-  const[session, setSession]=useState([]);
+  const[sessions, setSessions]=useState([]);
   const[joinSession,setJoinsession]= useState([]);
   const [msg,setMsg]=useState("");
 
@@ -18,7 +18,7 @@ const Session = ({t}) => {
   useEffect(()=>{
     getSession(oppID).then((resultFromApi)=>{
     console.log("sessionFromAPi",resultFromApi)
-    setSession(resultFromApi)
+    setSessions(resultFromApi)
     })           
     },[oppID])   
     
@@ -26,52 +26,60 @@ const Session = ({t}) => {
     const submitForm = (event)=>{
         event.preventDefault();
 
-        const data= {
-            success:false
+    const data= {
+        success:true
         }
 
-        putJoin(oppID,joinSession,data)
+    putJoin(oppID,joinSession,data)
         .then((resultFromApi)=>{
-            console.log(resultFromApi)
-            if(resultFromApi.success===true){
-                setMsg("THANK YOU FOR JOINING THE SESSION!")
-                
+         console.log(resultFromApi)
+         if(resultFromApi.success===true){
+            setMsg("THANK YOU FOR JOINING THE SESSION!")
             }else{
-                setMsg("FULL OR ALREADY JOINED!")
-
-            }
-            
+            setMsg("FULL OR ALREADY JOINED!")
+        }
         })
     }
     
-
-    return (
+return (
     <>
     <Container fluid className="session" >
-    <Row>
-    <Card style={{ width: '30rem' }}>
-    <Card.Body>
-    <Card.Title><strong>{t('session')}</strong></Card.Title>
-    <ListGroup variant="flush">
-    <ListGroup.Item><strong>{t('date')}</strong> {session.PLACEMENTSLOTDATE}</ListGroup.Item>
-    <ListGroup.Item><strong>{t('startat')}</strong> {session.PLACEMENTSLOTSTARTTIME}</ListGroup.Item>
-    <ListGroup.Item><strong>{t('hours')}</strong> {session.PLACEMENTSLOTHOURS}</ListGroup.Item>
-    </ListGroup>
-    </Card.Body>
-    </Card>
-    </Row>
 
-    <Row className="join">
-    <form onSubmit={submitForm}>
-        <Button 
-            type="submit"
-            onClick={(e)=>setJoinsession(session.PLACEMENTSLOTID)} 
-            >{t('join')}</Button>
-            </form>
-    </Row>
-    <Row className="msg">
-        <h2 >{msg}</h2>
-    </Row>
+    <h2>{msg}</h2>
+
+        <ul>
+            {
+                sessions.map((session)=>{
+                    return(
+                        <li key={session.PLACEMENTSLOTID}>
+                            <Row className="session-card"> 
+                            <Card style={{width:'60rem'}}>
+                            <Card.Body>
+                            <Card.Title><strong>{t('session')}</strong></Card.Title>
+
+                            <ListGroup variant="flush">
+                            <ListGroup.Item><strong>{t('date')}</strong> {session.PLACEMENTSLOTDATE}</ListGroup.Item>
+                            <ListGroup.Item><strong>{t('startat')}</strong> {session.PLACEMENTSLOTSTARTTIME}</ListGroup.Item>
+                            <ListGroup.Item><strong>{t('hours')}</strong> {session.PLACEMENTSLOTHOURS}</ListGroup.Item>
+                            <ListGroup.Item>
+                            <form  onSubmit={submitForm}>
+                            <Button 
+                            type="submit"
+                            onClick={(e)=>setJoinsession(session.PLACEMENTSLOTID)} 
+                            >{t('join')}</Button>
+                            </form>
+                            </ListGroup.Item>
+                            </ListGroup>
+
+                            </Card.Body>
+                            </Card>
+                            </Row>
+                        </li>
+                    )
+                })
+            }
+        </ul>
+        
     </Container>
     </>
     );
