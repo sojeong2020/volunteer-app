@@ -9,7 +9,7 @@ import swim from '../img/swim.jpg';
 import { Card, ListGroup, ListGroupItem, Container, Row, Col, Button} from 'react-bootstrap';
 import '../style/opps.css';
 
-const Opportunity = () => {
+const Opportunity = ({t}) => {
 
    const[opportunityFirst, setOpportunityFirst]=useState([]);
    const[opportunitySecond, setOpportunitySecond]=useState([]);
@@ -50,13 +50,13 @@ const Opportunity = () => {
     <Card.Title>{opportunityFirst.NAME}</Card.Title>
     </Card.Body>
     <ListGroup className="list-group-flush">
-    <ListGroupItem>Start Date {opportunityFirst.STARTDATE}</ListGroupItem>
-    <ListGroupItem>End Date {opportunityFirst.ENDDATE}</ListGroupItem>
+    <ListGroupItem>{t('startdate')} {opportunityFirst.STARTDATE}</ListGroupItem>
+    <ListGroupItem>{t('enddate')} {opportunityFirst.ENDDATE}</ListGroupItem>
     </ListGroup>
     <Card.Body className="button">
-    <Card.Link href={`/session/${opportunityFirst.oppID}`}><Button className="button-group" variant="outline-success">Session</Button></Card.Link> <br />
-    <Card.Link href={`/documents/${opportunityFirst.oppID}`}><Button className="button-group" variant="outline-warning">Upload Doc</Button></Card.Link><br />
-    <Card.Link href={`/experience/${opportunityFirst.oppID}`}><Button className="button-group" variant="outline-primary">Update Experience</Button></Card.Link>
+    <Card.Link href={`/session/${opportunityFirst.oppID}`}><Button className="button-group" variant="outline-success">{t('session')}</Button></Card.Link> <br />
+    <Card.Link href={`/documents/${opportunityFirst.oppID}`}><Button className="button-group" variant="outline-warning">{t('uploaddoc')}</Button></Card.Link><br />
+    <Card.Link href={`/experience/${opportunityFirst.oppID}`}><Button className="button-group" variant="outline-primary">{t('updateexperience')}</Button></Card.Link>
     </Card.Body>
     </Card>
     </Col>
@@ -68,13 +68,13 @@ const Opportunity = () => {
     <Card.Title>{opportunitySecond.NAME}</Card.Title>
     </Card.Body>
     <ListGroup className="list-group-flush">
-    <ListGroupItem>Start Date {opportunitySecond.STARTDATE}</ListGroupItem>
-    <ListGroupItem>End Date {opportunitySecond.ENDDATE}</ListGroupItem>
+    <ListGroupItem>{t('startdate')} {opportunitySecond.STARTDATE}</ListGroupItem>
+    <ListGroupItem>{t('enddate')} {opportunitySecond.ENDDATE}</ListGroupItem>
     </ListGroup>
     <Card.Body className="button">
-    <Card.Link href={`/session/${opportunitySecond.oppID}`}><Button className="button-group" variant="outline-success">Session</Button></Card.Link><br />
-    <Card.Link href={`/documents/${opportunitySecond.oppID}`}><Button className="button-group" variant="outline-warning">Upload Doc</Button></Card.Link><br />
-    <Card.Link href={`/experience/${opportunitySecond.oppID}`}><Button className="button-group" variant="outline-primary">Update Experience</Button></Card.Link>
+    <Card.Link href={`/session/${opportunitySecond.oppID}`}><Button className="button-group" variant="outline-success">{t('session')}</Button></Card.Link><br />
+    <Card.Link href={`/documents/${opportunitySecond.oppID}`}><Button className="button-group" variant="outline-warning">{t('uploaddoc')}</Button></Card.Link><br />
+    <Card.Link href={`/experience/${opportunitySecond.oppID}`}><Button className="button-group" variant="outline-primary">{t('updateexperience')}</Button></Card.Link>
     </Card.Body>
     </Card>
     </Col>
@@ -86,13 +86,13 @@ const Opportunity = () => {
     <Card.Title>{opportunityThird.NAME}</Card.Title>
     </Card.Body>
     <ListGroup className="list-group-flush">
-    <ListGroupItem>Start Date {opportunityThird.STARTDATE}</ListGroupItem>
-    <ListGroupItem>End Date {opportunityThird.ENDDATE}</ListGroupItem>
+    <ListGroupItem>{t('startdate')} {opportunityThird.STARTDATE}</ListGroupItem>
+    <ListGroupItem>{t('enddate')}{opportunityThird.ENDDATE}</ListGroupItem>
     </ListGroup>
     <Card.Body className="button">
-    <Card.Link href={`/session/${opportunityThird.oppID}`}><Button className="button-group" variant="outline-success">Session</Button></Card.Link><br />
-    <Card.Link href={`/documents/${opportunityThird.oppID}`}><Button className="button-group" variant="outline-warning">Upload Doc</Button></Card.Link><br />
-    <Card.Link href={`/experience/${opportunityThird.oppID}`}><Button className="button-group" variant="outline-primary">Update Experience</Button></Card.Link>
+    <Card.Link href={`/session/${opportunityThird.oppID}`}><Button className="button-group" variant="outline-success">{t('session')}</Button></Card.Link><br />
+    <Card.Link href={`/documents/${opportunityThird.oppID}`}><Button className="button-group" variant="outline-warning">{t('uploaddoc')}</Button></Card.Link><br />
+    <Card.Link href={`/experience/${opportunityThird.oppID}`}><Button className="button-group" variant="outline-primary">{t('updateexperience')}</Button></Card.Link>
     </Card.Body>
     </Card>
     </Col>

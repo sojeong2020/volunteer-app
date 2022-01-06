@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom';
 import { Form, Button, Container, Row, Col} from 'react-bootstrap';
 import '../style/doc.css'
 
-const Documents = () => {
+const Documents = ({t}) => {
     const {oppID}=useParams();
     console.log(oppID,"OPPIDfromDocuments")
     const [name, setName] = useState("");
@@ -31,27 +31,27 @@ const Documents = () => {
  return (
         <>
         <Container fluid className="doc-form" >
-        <h2>Qualifications, ID, and other suupporting documents</h2>
+        <h2>{t('Qualifications')}</h2>
         <Row className="form-row">
         <Col>
         <Form onSubmit={submitForm}>
 
         <Form.Group >
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Name" required onChange={(e)=>setName(e.target.value)} />
+        <Form.Label>{t('name')}</Form.Label>
+        <Form.Control type="text" placeholder={t('name')} required onChange={(e)=>setName(e.target.value)} />
         </Form.Group>
 
         <Form.Group >
-        <Form.Label>Description</Form.Label>
-        <Form.Control type="text" placeholder="Description" required onChange={(e)=>setDescription(e.target.value)} />
+        <Form.Label>{t('description')}</Form.Label>
+        <Form.Control type="text" placeholder={t('description')} required onChange={(e)=>setDescription(e.target.value)} />
         </Form.Group>
 
         <Form.Group >
-        <Form.Label>File </Form.Label>
+        <Form.Label>{t('file')}</Form.Label>
         <Form.Control type="file" required onChange={(e)=>setSelectedFile(e.target.files)} />
         </Form.Group>
 
-        <Button className="button" type="submit" >Upload</Button>
+        <Button className="button" type="submit" >{t('upload')}</Button>
 
         </Form>
         </Col>

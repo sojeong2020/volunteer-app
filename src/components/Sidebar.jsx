@@ -10,7 +10,8 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
  
-const Sidebar = ({t, i18n}) => {
+const Sidebar = ({t}) => {
+  
     return (
       <div className="sidebar">
         <CDBSidebar textColor="#fff" backgroundColor="#333">

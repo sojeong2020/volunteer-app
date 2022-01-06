@@ -8,20 +8,20 @@ import tea from '../img/tea.jpg';
 import { Card, Container, Row, Col} from 'react-bootstrap';
 
 
-const Resources = () => {
+const Resources = ({t}) => {
     return (
     <>
     <Container fluid>
 
     <Row>
 
-    <h1>Resources</h1>
+    <h1>{t('resources')}</h1>
     <Col sm={12} md={12} lg={4}>
     <Card>
     <Card.Img variant="top" src={movie} />
     <Card.Body>
-    <Card.Title>HANDBOOK</Card.Title>
-    <Card.Link href={picture} download="movie.jpg">Download</Card.Link>
+    <Card.Title>{t('handbook')}</Card.Title>
+    <Card.Link href={picture} download="movie.jpg">{t('download')}</Card.Link>
     </Card.Body>
     </Card>
     </Col>
@@ -30,8 +30,8 @@ const Resources = () => {
     <Card>
     <Card.Img variant="top" src={nasa} />
     <Card.Body>
-    <Card.Title>NEWS</Card.Title>
-    <Card.Link href={tasktest} download="tasktest.docx">Download</Card.Link>
+    <Card.Title>{t('news')}</Card.Title>
+    <Card.Link href={tasktest} download="tasktest.docx">{t('download')}</Card.Link>
     </Card.Body>
     </Card>
     </Col>
@@ -40,8 +40,8 @@ const Resources = () => {
     <Card>
     <Card.Img variant="top" src={tea} />
     <Card.Body>
-    <Card.Title>DOCUMENT</Card.Title>
-    <Card.Link href={tesDoc} download="tesDoc.pdf">Download</Card.Link>
+    <Card.Title>{t('documents')}</Card.Title>
+    <Card.Link href={tesDoc} download="tesDoc.pdf">{t('download')}</Card.Link>
     </Card.Body>
     </Card>
     </Col>

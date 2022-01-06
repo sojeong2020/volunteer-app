@@ -59,16 +59,16 @@ function App() {
       </Row>
       
     <div style={styles.contentDiv}>
-        <Sidebar t={t} i18n={i18n} />
+        <Sidebar t={t} />
     <div style={styles.contentMargin}>
      <Routes>
       
       <Route exact path="/" element={<Home t={t} lang={lang}/>} />
-      <Route exact path="/opportunities" element={<Opportunities/>}/>
-      <Route exact path="/experience/:oppID" element={<Experience/>}/>
-      <Route exact path="/session/:oppID" element={<Session/>}/> 
-      <Route exact path="/documents/:oppID" element={<Documents/>}/>
-      <Route exacts path="/resources" element={<Resources/>}/>
+      <Route exact path="/opportunities" element={<Opportunities t={t} />}/>
+      <Route exact path="/experience/:oppID" element={<Experience t={t} />}/>
+      <Route exact path="/session/:oppID" element={<Session t={t} />}/> 
+      <Route exact path="/documents/:oppID" element={<Documents t={t} />}/>
+      <Route exacts path="/resources" element={<Resources t={t} />}/>
       </Routes>  
     </div>
     </div>

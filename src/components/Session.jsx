@@ -5,7 +5,7 @@ import { useParams} from 'react-router-dom';
 import { Button, Card, ListGroup,Container,Row} from 'react-bootstrap';
 import '../style/session.css';
 
-const Session = () => {
+const Session = ({t}) => {
 
   const {oppID}=useParams();
   console.log(oppID,"oppIDfromuseParam")
@@ -51,11 +51,11 @@ const Session = () => {
     <Row>
     <Card style={{ width: '30rem' }}>
     <Card.Body>
-    <Card.Title><strong>Session</strong></Card.Title>
+    <Card.Title><strong>{t('session')}</strong></Card.Title>
     <ListGroup variant="flush">
-    <ListGroup.Item><strong>Date</strong> {session.PLACEMENTSLOTDATE}</ListGroup.Item>
-    <ListGroup.Item><strong>Start at</strong> {session.PLACEMENTSLOTSTARTTIME}</ListGroup.Item>
-    <ListGroup.Item><strong>Hours</strong> {session.PLACEMENTSLOTHOURS}</ListGroup.Item>
+    <ListGroup.Item><strong>{t('date')}</strong> {session.PLACEMENTSLOTDATE}</ListGroup.Item>
+    <ListGroup.Item><strong>{t('startat')}</strong> {session.PLACEMENTSLOTSTARTTIME}</ListGroup.Item>
+    <ListGroup.Item><strong>{t('hours')}</strong> {session.PLACEMENTSLOTHOURS}</ListGroup.Item>
     </ListGroup>
     </Card.Body>
     </Card>
@@ -66,7 +66,7 @@ const Session = () => {
         <Button 
             type="submit"
             onClick={(e)=>setJoinsession(session.PLACEMENTSLOTID)} 
-            >Join</Button>
+            >{t('join')}</Button>
             </form>
     </Row>
     <Row className="msg">

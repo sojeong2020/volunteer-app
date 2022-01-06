@@ -6,7 +6,7 @@ import '../style/experience.css';
 import {Form,Button, Container,Row,Col} from 'react-bootstrap';
 
 
-const Experience = () => {
+const Experience = ({t}) => {
 
     const {oppID}= useParams();
 
@@ -36,14 +36,14 @@ const Experience = () => {
     return (
         <div>
         <Container fluid className="form" >
-            <h1>Update user experience</h1>
+            <h1>{t('updateexperience')}</h1>
             <Row className="experience-row">
                 <Col>
             <Form onSubmit={submitForm}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Control placeholder="experience" required as="textarea" rows={6} onChange={(e)=>setUpdate(e.target.value)} />
+            <Form.Control placeholder={t('experience')} required as="textarea" rows={6} onChange={(e)=>setUpdate(e.target.value)} />
             </Form.Group>
-            <Button className="button" type="submit">update</Button>
+            <Button className="button" type="submit">{t('update')}</Button>
             </Form>
            
           </Col>

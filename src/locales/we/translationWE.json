@@ -9,9 +9,30 @@
     "hello":"Helo",
     "hourslogged":" Oriau wedi'u cofnodi",
     "thumbsup":"Bawd i fyny",
+    "startdate":"Dyddiad cychwyn",
+    "enddate":"Dyddiad Gorffen",
+    "session":"Sesiwn",
+    "uploaddoc":"Uwchlwytho doc",
+    "updateexperience":"Diweddaru profiad",
+    "experience":"Profiad",
+    "date":"Dyddiad",
+    "startat":"Dechrau am",
+    "hours":"Oriau",
+    "join":"Muno",
+    "Qualifications":"Cymwysterau, ID, a dogfennau cefnogi eraill",
+    "name":"Enw",
+    "description":"Disgrifiad",
+    "file":"Ffeil",
+    "choosefile":"Dewiswch ffeil",
+    "nofilechosen":"Ni ddewiswyd ffeil",
+    "upload":"Llwythiad",
+    "Updateuser":"Diweddaru profiad y defnyddiwr",
+    "experienc":"defnyddiwr",
+    "update":"diweddaru",
+    "handbook":"Llawlyfr",
+    "news":"Newyddion",
+    "documents":"Dogfennau",
+    "download":"Lawrlwytho",
     "contact":"cysylltwch",
     "policies":"polisïau"
-
- 
-    
- }
+}
