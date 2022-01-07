@@ -12,9 +12,10 @@ const Home = ({t, lang}) => {
     const [search,setSearch]=useState("");
     const [result,setResult]=useState([]);
     const [profile, setProfile]=useState([]);
+    const [hasError, setHasError]=useState(false);
+    const [errorMsg, setErrorMsg] =useState(false)
 
-    console.log(result,"result in Home")
-
+   
     useEffect(()=>{
         getProfile().then((resultFromApi)=>{
             console.log("profileFromAPi",resultFromApi)
@@ -27,10 +28,20 @@ const Home = ({t, lang}) => {
         event.preventDefault();
 
      getSearch(search).then((resultFromApi)=>{
-         setResult(resultFromApi)
-     })
-    
+        console.log(resultFromApi,"<<<< resultFromAPI")
+        if(resultFromApi !== undefined){
+            setResult(resultFromApi)
+        }else{
+            setErrorMsg(true)
+        }
+        }).catch((err)=>{
+         setHasError(true)
+        })
     }
+
+    if(errorMsg) return <h2>No search results :(</h2>
+
+    if(hasError) return <p>Something went wrong :(</p>
 
 return (
     <Container fluid>
@@ -69,19 +80,19 @@ return (
         </div>  
 
         </div>
-    </Col>
-    </Row>
+        </Col>
+        </Row>
 
-    <Row>
-    <Col className="result">
-   <h2>{lang ==="en" || lang === '' ? result.NAME: result.NAMEALTLANG }</h2> 
+        <Row>
+        <Col className="result">
+        <h2>{lang ==="en" || lang === '' ? result.NAME: result.NAMEALTLANG }</h2> 
 
-    <div className="description">
-    <h3>{lang ==="en" || lang === '' ? result.DESCRIPTION: result.DESCRIPTIONALTLNG}</h3>
-    </div>
-    </Col>
-    </Row> 
-    </Container>
+        <div className="description">
+        <h3>{lang ==="en" || lang === '' ? result.DESCRIPTION: result.DESCRIPTIONALTLNG}</h3>
+        </div>  
+        </Col>
+        </Row> 
+        </Container>
     );
 };
 

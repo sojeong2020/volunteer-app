@@ -10,14 +10,13 @@ const Session = ({t}) => {
   const {oppID}=useParams();
   console.log(oppID,"oppIDfromuseParam")
 
-  const[sessions, setSessions]=useState([]);
-  const[joinSession,setJoinsession]= useState([]);
-  const [msg,setMsg]=useState("");
+  const [sessions, setSessions] = useState([]);
+  const [placementSlotId,setPlacementSlotId] = useState([]);
+  const [msg,setMsg] = useState("");
 
 
   useEffect(()=>{
     getSession(oppID).then((resultFromApi)=>{
-    console.log("sessionFromAPi",resultFromApi)
     setSessions(resultFromApi)
     })           
     },[oppID])   
@@ -30,9 +29,8 @@ const Session = ({t}) => {
         success:true
         }
 
-    putJoin(oppID,joinSession,data)
+    putJoin(oppID, placementSlotId, data)
         .then((resultFromApi)=>{
-         console.log(resultFromApi)
          if(resultFromApi.success===true){
             setMsg("THANK YOU FOR JOINING THE SESSION!")
             }else{
@@ -62,12 +60,15 @@ return (
                             <ListGroup.Item><strong>{t('startat')}</strong> {session.PLACEMENTSLOTSTARTTIME}</ListGroup.Item>
                             <ListGroup.Item><strong>{t('hours')}</strong> {session.PLACEMENTSLOTHOURS}</ListGroup.Item>
                             <ListGroup.Item>
+
                             <form  onSubmit={submitForm}>
                             <Button 
                             type="submit"
-                            onClick={(e)=>setJoinsession(session.PLACEMENTSLOTID)} 
-                            >{t('join')}</Button>
+                            onClick={(e)=>setPlacementSlotId(session.PLACEMENTSLOTID)} 
+                            >{t('join')}
+                            </Button>
                             </form>
+
                             </ListGroup.Item>
                             </ListGroup>
 
